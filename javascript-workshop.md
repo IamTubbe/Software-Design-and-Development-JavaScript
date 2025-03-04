@@ -99,6 +99,22 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
     <script src="script.js"></script>
 </body>
 </html>
+
+
+document.getElementById('btn2').onclick = function() {
+    const Datee = new Date();
+    alert('วันที่ปัจจุบัน : ' + Datee.toDateString());
+};
+
+function hello3(){
+    const times = new Date();
+    alert('เวลาปัจจุบัน : ' + times.toTimeString());
+    }
+
+document.getElementById('btn1').onclick = function() {
+    const message = document.getElementById('textbox').value;
+        document.getElementById('output_text').innerText= "ข้อความที่กรอก :  " + message;
+};
 ```
 [รูปผลการทดลองที่ 1]
 ![image](https://github.com/user-attachments/assets/ab28285f-8318-4cd2-8659-5040da27e851)
@@ -184,20 +200,26 @@ let person = {
 </body>
 </html>
 
-document.getElementById('btn2').onclick = function() {
-    const Datee = new Date();
-    alert('วันที่ปัจจุบัน : ' + Datee.toDateString());
-};
-
-function hello3(){
-    const times = new Date();
-    alert('เวลาปัจจุบัน : ' + times.toTimeString());
-    }
-
-document.getElementById('btn1').onclick = function() {
-    const message = document.getElementById('textbox').value;
-        document.getElementById('output_text').innerText= "ข้อความที่กรอก :  " + message;
-};
+let studentID = "67030298";
+        let studentName = "ธนดี บุญภมร";
+        let midtermScore = 61;
+        let finalScore = 73;
+        let totalScore = midtermScore + finalScore;
+        let averageScore = (midtermScore + finalScore)/2;
+        const student = {
+            id: studentID,
+            name: studentName,
+            major: "เทคโนโลยีคอมพิวเตอร์",
+            gpa: 3.02
+        };
+        document.getElementById("studentID").innerText = student.id;
+        document.getElementById("studentName").innerText = student.name;
+        document.getElementById("midtermScore").innerText = midtermScore;
+        document.getElementById("finalScore").innerText = finalScore;
+        document.getElementById("major").innerText = student.major;
+        document.getElementById("gpa").innerText = student.gpa;
+        document.getElementById("totalScore").innerText = totalScore
+        document.getElementById("averageScore").innerText = averageScore
 ```
 [รูปผลการทดลองที่ 2.1]
 ![image](https://github.com/user-attachments/assets/6a421041-e2ed-4433-a0ef-74b1f887622b)
