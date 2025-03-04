@@ -1,4 +1,4 @@
-# การทดลอง พื้นฐาน JavaScript และการใช้งานร่วมกับ HTML/CSS
+![image](https://github.com/user-attachments/assets/c5a0450d-90bd-4fad-a47f-6fe95967c2ab)# การทดลอง พื้นฐาน JavaScript และการใช้งานร่วมกับ HTML/CSS
 ## การทดลองที่ 1 : ทำความรู้จักกับ JavaScript
 ###  การเพิ่ม JavaScript ลงในเว็บเพจ
 
@@ -76,10 +76,37 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
    - มีปุ่มเมื่อคลิกแล้วจะแสดงข้อความที่กรอกในช่องข้อความ  (สามารถใช้ document.getElementById('id ของ textbox').value เพื่อดึงข้อมูลในช่อง)
 ### บันทึกผลการทดลอง 
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ทดลอง JavaScript</title>
+</head>
+<body>
+    <button onclick="alert('นายธนบดี บุญภมร')">ปุ่มที่ 1</button>
+
+    <button id="btn2">ปุ่มที่ 2</button>
+
+    <button id="btn3" onclick="hello3();">ปุ่มที่ 3</button>
+
+    <br>
+
+    <label for="textbox">กรอกข้อความ : </label>
+    <input type="text" id="textbox">
+    <button id="btn1">แสดงข้อความ</button>
+    <p id="output_text"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
 ```
 [รูปผลการทดลองที่ 1]
-  
+![image](https://github.com/user-attachments/assets/ab28285f-8318-4cd2-8659-5040da27e851)
+![image](https://github.com/user-attachments/assets/b82a5197-41f2-4c81-9854-95347742048d)
+![image](https://github.com/user-attachments/assets/3b39b81d-3641-48fb-ad7c-bb8e93dca806)
+![image](https://github.com/user-attachments/assets/63f88189-3439-4762-a808-05b1cd3d8911)
+
+
 ## การทดลองที่ 2: พื้นฐาน JavaScript
 ### 2.1 การประกาศตัวแปรและชนิดข้อมูล
 
@@ -134,10 +161,46 @@ let person = {
 
 ### บันทึกผลการทดลอง 2.1
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ข้อมูลนักศึกษา</title>
+</head>
+<body>
+    <h2>ข้อมูลนักศึกษา</h2>
+    <p>รหัสนักศึกษา : <div id="studentID"></div></p>
+    <p>ชื่อ : <div id="studentName"></div></p>
+    <p>สาขาวิชา : <div id="major"></div></p>
+    <p>เกรดเฉลี่ย : <div id="gpa"></div></p>
+    <hr>
+    <h2>คะแนนสอบ</h2>
+    <p>คะแนนสอบกลางภาค : <div id="midtermScore"></div></p>
+    <p>คะแนนสอบปลายภาค : <div id="finalScore"></div></p>
+    <p>คะแนนรวม : <div id="totalScore"></div></p>
+    <p>คะแนนเฉลี่ย : <div id="averageScore"></div></p>    
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+document.getElementById('btn2').onclick = function() {
+    const Datee = new Date();
+    alert('วันที่ปัจจุบัน : ' + Datee.toDateString());
+};
+
+function hello3(){
+    const times = new Date();
+    alert('เวลาปัจจุบัน : ' + times.toTimeString());
+    }
+
+document.getElementById('btn1').onclick = function() {
+    const message = document.getElementById('textbox').value;
+        document.getElementById('output_text').innerText= "ข้อความที่กรอก :  " + message;
+};
 ```
 [รูปผลการทดลองที่ 2.1]
-
+![image](https://github.com/user-attachments/assets/6a421041-e2ed-4433-a0ef-74b1f887622b)
 
 ### 2.2 การดำเนินการทางคณิตศาสตร์
 
@@ -188,9 +251,56 @@ number /= 2;          // เท่ากับ number = number / 2
 
 ### บันทึกผลการทดลอง 2.2
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>การคำนวณพื้นฐาน</title>
+</head>
+<body>
+    <div class="section">
+        <h1>คำนวณคะแนนเฉลี่ย</h1>
+        <label>คะแนนวิชาที่ 1 : <input type="number" id="score1"></label><br>
+        <label>คะแนนวิชาที่ 2 : <input type="number" id="score2"></label><br>
+        <label>คะแนนวิชาที่ 3 : <input type="number" id="score3"></label><br><br>
+        <button onclick="calculateAverage()">คำนวณ</button>
+        <p><span id="averageResult"></span></p>
+    </div>
+    <hr>
+    <div class="section">
+        <h1>คำนวณราคาสินค้ารวม VAT 7%</h1>
+        <label>ชื่อสินค้า : <input type="text" id="productName"></label><br>
+        <label>ราคาสินค้า : <input type="number" id="productPrice"></label><br><br>
+        <button onclick="calculateVAT()">คำนวณราคา</button>
+        <p><span id="vat"></span></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+function calculateAverage() {
+    let score1 = parseFloat(document.getElementById("score1").value) || 0;
+    let score2 = parseFloat(document.getElementById("score2").value) || 0;
+    let score3 = parseFloat(document.getElementById("score3").value) || 0;
+    
+    let average = (score1 + score2 + score3) / 3;
+    document.getElementById("averageResult").innerText = "คะแนนเฉลี่ย: " + average.toFixed(2);
+}
+
+
+function calculateVAT() {
+    let productName = document.getElementById("productName").value;
+    let productPrice = parseFloat(document.getElementById("productPrice").value) || 0;
+
+    let vat = productPrice * 0.07;
+    let totalPrice = productPrice + vat;
+
+    document.getElementById("vat").innerText = 
+        `สินค้า : ${productName}\nราคาสินค้า: ${productPrice.toFixed(2)} บาท\nVAT 7% : ${vat.toFixed(2)} บาท\nราคารวม : ${totalPrice.toFixed(2)} บาท`;
+}
 ```
 [รูปผลการทดลองที่ 2.2]
+![image](https://github.com/user-attachments/assets/928ecb8a-ca0f-4ad6-94b6-a35a86014649)
 
 ### 2.3 การควบคุมการทำงาน
 
