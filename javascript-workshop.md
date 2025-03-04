@@ -453,9 +453,83 @@ for (let i = 1; i <= 5; i++) {
 
 ### บันทึกผลการทดลอง 2.3
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>การควบคุมการทำงาน</title>
+</head>
+<body>
+    <h1>โปรแกรมการควบคุมการทำงาน</h1>
+
+    <h2>ตรวจสอบเลขคู่หรือเลขคี่</h2>
+    <input type="number" id="number" placeholder="ป้อนตัวเลข">
+    <button onclick="checkEvenOdd()">ตรวจสอบ</button>
+    <p id="evenOddResult"></p>
+
+    <h2>แสดงตารางสูตรคูณ</h2>
+    <button onclick="multiplicationTables()">แสดงสูตรคูณ</button>
+    <div id="multiplicationResult"></div>
+
+    <h2>นับถอยหลังจาก 10 ถึง 1</h2>
+    <button onclick="countdown()">เริ่มนับถอยหลัง</button>
+    <div id="countdownResult"></div>
+
+    <h2>ตรวจสอบช่วงวัยตามอายุ</h2>
+    <label for="age">ป้อนอายุ: </label>
+    <input type="number" id="age">
+    <button onclick="checkAge()">ตรวจสอบ</button>
+    <p id="ageResult"></p>
+    <script src="script.js"></script>
+</body>
+</html>
+
+function checkEvenOdd() {
+    let num = parseInt(document.getElementById("number").value);
+    let result = num % 2 === 0 ? "เลขคู่" : "เลขคี่";
+    document.getElementById("evenOddResult").innerText = result;
+}
+
+function multiplicationTables() {
+    let result = "<h3>สูตรคูณแม่ 2</h3><ul>";
+    for (let i = 1; i <= 12; i++) {
+        result += `<li>2 x ${i} = ${2 * i}</li>`;
+    }
+    result += "</ul><h3>สูตรคูณแม่ 3</h3><ul>";
+    let i = 1;
+    while (i <= 12) {
+        result += `<li>3 x ${i} = ${3 * i}</li>`;
+        i++;
+    }
+    result += "</ul>";
+    document.getElementById("multiplicationResult").innerHTML = result;
+}
+
+function countdown() {
+    let result = "";
+    for (let i = 10; i > 0; i--) {
+        result += `<p>${i}</p>`;
+    }
+    document.getElementById("countdownResult").innerHTML = result;
+}
+
+function checkAge() {
+    let age = parseInt(document.getElementById("age").value);
+    let result = "";
+    if (age >= 0 && age <= 12) {
+        result = "วัยเด็ก";
+    } else if (age >= 13 && age <= 19) {
+        result = "วัยรุ่น";
+    } else if (age >= 20) {
+        result = "วัยผู้ใหญ่";
+    } else {
+        result = "กรุณากรอกอายุให้ถูกต้อง";
+    }
+    document.getElementById("ageResult").innerText = result;
+}
 ```
 [รูปผลการทดลองที่ 2.3]
+![image](https://github.com/user-attachments/assets/967bbc8d-eddb-4c25-a7ea-46327a6b795a)
 
 ### 2.4 Functions และ Arrow Functions
 
