@@ -641,11 +641,77 @@ process(function() {
 
 ### บันทึกผลการทดลอง 2.4.1
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>คำนวณ BMI และตรวจสอบรหัสผ่าน</title>
+</head>
+<body>
+    <h2>คำนวณค่า BMI</h2>
+    <label>น้ำหนัก (กก.): <input type="number" id="weight"></label><br>
+    <label>ส่วนสูง (ซม.): <input type="number" id="height"></label><br>
+    <br>
+    <button onclick="calculateBMI()">คำนวณ BMI</button>
+    <p id="bmiResult"></p>
+
+    <hr>
+
+    <h2>ทักทายตามอายุ</h2>
+    <label>ชื่อ : <input type="text" id="name"></label><br>
+    <label>อายุ : <input type="number" id="age"></label><br>
+    <br>
+    <button onclick="greetUser()">แสดงข้อความทักทาย</button>
+    <p id="greetingMessage"></p>
+
+    <hr>
+
+    <h2>ตรวจสอบรหัสผ่าน</h2>
+    <label>รหัสผ่าน : <input type="password" id="password"></label><br>
+    <br>
+    <button onclick="checkPassword()">ตรวจสอบรหัสผ่าน</button>
+    <p id="passwordResult"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+function calculateBMI() {
+    let weight = parseFloat(document.getElementById("weight").value);
+    let height = parseFloat(document.getElementById("height").value) / 100;
+    if (weight > 0 && height > 0) {
+        let bmi = weight / (height * height);
+        document.getElementById("bmiResult").innerText = "BMI ของคุณ : " + bmi.toFixed(2);
+    } else {
+        alert("กรุณากรอกค่าน้ำหนักและส่วนสูงให้ถูกต้อง");
+    }
+}
+
+function greetUser() {
+    let name = document.getElementById("name").value;
+    let age = parseInt(document.getElementById("age").value);
+    let greeting = "สวัสดี " + name + "! ";
+    if (age < 18) {
+        greeting += "คุณยังเป็นเยาวชน ขอให้สนุกกับการเรียนรู้";
+    } else if (age < 60) {
+        greeting += "ขอให้มีความสุขกับทุกๆวัน";
+    } else {
+        greeting += "ขอให้สุขภาพแข็งแรงและมีความสุขในทุกวันๆ";
+    }
+    document.getElementById("greetingMessage").innerText = greeting;
+}
+
+function checkPassword() {
+    let password = document.getElementById("password").value;
+    if (password.length > 8) {
+        document.getElementById("passwordResult").innerText = "รหัสผ่านปลอดภัย";
+    } else {
+        document.getElementById("passwordResult").innerText = "รหัสผ่านต้องมากกว่า 8 ตัวอักษร";
+    }
+}
 ```
 [รูปผลการทดลองที่ 2.4.1]
-
-
+![image](https://github.com/user-attachments/assets/b2aceec8-64ec-4923-b41a-038bea9b680a)
 
 #### 2.4.2 Arrow Function
 Arrow Function เป็นวิธีการเขียน function แบบสั้นๆ ที่มาพร้อมกับ JavaScript เวอร์ชัน ES6
@@ -684,10 +750,74 @@ console.log("เลขคู่:", evenNumbers); // [2, 4]
 
 ### บันทึกผลการทดลอง 2.4.2
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>คำนวณ BMI และตรวจสอบรหัสผ่าน</title>
+</head>
+<body>
+    <h2>คำนวณค่า BMI</h2>
+    <label>น้ำหนัก (กก.) : <input type="number" id="weight"></label><br>
+    <label>ส่วนสูง (ซม.) : <input type="number" id="height"></label><br>
+    <br>
+    <button onclick="calculateBMI()">คำนวณ BMI</button>
+    <p id="bmiResult"></p>
+
+    <hr>
+
+    <h2>ทักทายตามอายุ</h2>
+    <label>ชื่อ : <input type="text" id="name"></label><br>
+    <label>อายุ : <input type="number" id="age"></label><br>
+    <br>
+    <button onclick="greetUser()">แสดงข้อความทักทาย</button>
+    <p id="greetingMessage"></p>
+
+    <hr>
+
+    <h2>ตรวจสอบรหัสผ่าน</h2>
+    <label>รหัสผ่าน : <input type="password" id="password"></label><br>
+    <br>
+    <button onclick="checkPassword()">ตรวจสอบรหัสผ่าน</button>
+    <p id="passwordResult"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+const calculateBMI = () => {
+    let weight = parseFloat(document.getElementById("weight").value);
+    let height = parseFloat(document.getElementById("height").value) / 100;
+    if (weight > 0 && height > 0) {
+        let bmi = weight / (height * height);
+        document.getElementById("bmiResult").innerText = `BMI ของคุณ : ${bmi.toFixed(2)}`;
+    } else {
+        alert("กรุณากรอกค่าน้ำหนักและส่วนสูงให้ถูกต้อง");
+    }
+};
+
+const greetUser = () => {
+    let name = document.getElementById("name").value;
+    let age = parseInt(document.getElementById("age").value);
+    let greeting = `สวัสดี ${name}! `;
+    if (age < 18) {
+        greeting += "คุณยังเป็นเยาวชน ขอให้สนุกกับการเรียนรู้";
+    } else if (age < 60) {
+        greeting += "ขอให้มีความสุขกับทุกๆวัน";
+    } else {
+        greeting += "ขอให้สุขภาพแข็งแรงและมีความสุขในทุกๆวัน";
+    }
+    document.getElementById("greetingMessage").innerText = greeting;
+};
+
+const checkPassword = () => {
+    let password = document.getElementById("password").value;
+    document.getElementById("passwordResult").innerText = 
+        password.length > 8 ? "รหัสผ่านปลอดภัย" : "รหัสผ่านต้องมากกว่า 8 ตัวอักษร";
+};
 ```
 [รูปผลการทดลองที่ 2.4.2]
-
+![image](https://github.com/user-attachments/assets/95ddb233-4ae1-40e4-b14a-f969ea78737b)
 
 ## การทดลองที่ 3 : การใช้ JavaScript กับ HTML และ CSS
 ### การทดลองที่ 3.1 การสร้างปุ่มและจัดการ Event ด้วย JavaScript
