@@ -202,7 +202,7 @@ let person = {
 ```
 ```javascript
 let studentID = "67030298";
-        let studentName = "ธนดี บุญภมร";
+        let studentName = "ธนบดี บุญภมร";
         let midtermScore = 61;
         let finalScore = 73;
         let totalScore = midtermScore + finalScore;
