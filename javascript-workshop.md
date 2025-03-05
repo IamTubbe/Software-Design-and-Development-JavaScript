@@ -99,8 +99,8 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
     <script src="script.js"></script>
 </body>
 </html>
-
-
+```
+```javascript
 document.getElementById('btn2').onclick = function() {
     const Datee = new Date();
     alert('วันที่ปัจจุบัน : ' + Datee.toDateString());
@@ -199,7 +199,8 @@ let person = {
     <script src="script.js"></script>
 </body>
 </html>
-
+```
+```javascript
 let studentID = "67030298";
         let studentName = "ธนดี บุญภมร";
         let midtermScore = 61;
