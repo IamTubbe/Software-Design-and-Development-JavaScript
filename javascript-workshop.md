@@ -884,9 +884,85 @@ const checkPassword = () => {
 
 ### บันทึกผลการทดลอง 3.1
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h2>คำนวณค่า BMI</h2>
+        <label for="weight"></label>
+        <input type="number" id="weight" placeholder="กรอกน้ำหนักของคุณ">
+        <label for="height"></label>
+        <input type="number" id="height" placeholder="กรอกส่วนสูงของคุณ">
+        <button onclick="calculateBMI()">คำนวณ</button>
+        <p id="result"></p>
+    </div>
+
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</body>
+</html>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #000000;
+}
+button {
+    padding: 8px 12px;
+    border: none;
+    background: #2600ff;
+    color: #fff;
+    cursor: pointer;
+}
+button:hover {
+    background: #2600ff;
+}
+#result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+const calculateBMI = () => {
+    const weight = parseFloat(document.getElementById("weight").value);
+    const height = parseFloat(document.getElementById("height").value) / 100;
+    
+    if (!weight || !height) {
+        document.getElementById("result").innerText = "กรุณากรอกข้อมูลให้ครบถ้วน";
+        return;
+    }
+    
+    const bmi = (weight / (height * height)).toFixed(2);
+    let status = "";
+    
+    if (bmi < 18.5) {
+        status = "ผอม";
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+        status = "สมส่วน";
+    } else {
+        status = "อ้วน";
+    }
+    
+    document.getElementById("result").innerText = `ค่า BMI : ${bmi} (${status})`;
+};
 ```
 [รูปผลการทดลองที่ 3.1]
+![image](https://github.com/user-attachments/assets/2042ab3c-c1e0-4050-8162-96588fa1c068)
 
 ## การทดลองที่ 3.2 : การสร้างฟอร์มสำหรับจองห้องพัก
 การสร้างฟอร์มลงทะเบียนเพื่อรวบรวมข้อมูลที่จำเป็นสำหรับการจองห้องพัก
