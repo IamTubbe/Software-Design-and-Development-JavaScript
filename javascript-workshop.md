@@ -300,6 +300,8 @@ number /= 2;          // เท่ากับ number = number / 2
     <script src="script.js"></script>
 </body>
 </html>
+```
+```javascript
 
 function calculateAverage() {
     let score1 = parseFloat(document.getElementById("score1").value) || 0;
@@ -484,7 +486,8 @@ for (let i = 1; i <= 5; i++) {
     <script src="script.js"></script>
 </body>
 </html>
-
+```
+```javascript
 function checkEvenOdd() {
     let num = parseInt(document.getElementById("number").value);
     let result = num % 2 === 0 ? "เลขคู่" : "เลขคี่";
@@ -676,7 +679,8 @@ process(function() {
     <script src="script.js"></script>
 </body>
 </html>
-
+```
+```javascript
 function calculateBMI() {
     let weight = parseFloat(document.getElementById("weight").value);
     let height = parseFloat(document.getElementById("height").value) / 100;
@@ -785,7 +789,8 @@ console.log("เลขคู่:", evenNumbers); // [2, 4]
     <script src="script.js"></script>
 </body>
 </html>
-
+```
+```javascript
 const calculateBMI = () => {
     let weight = parseFloat(document.getElementById("weight").value);
     let height = parseFloat(document.getElementById("height").value) / 100;
@@ -906,7 +911,8 @@ const checkPassword = () => {
     <link rel="stylesheet" href="style.css">
 </body>
 </html>
-
+```
+```css
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -938,7 +944,8 @@ button:hover {
     margin-top: 10px;
     font-weight: bold;
 }
-
+```
+```javascript
 const calculateBMI = () => {
     const weight = parseFloat(document.getElementById("weight").value);
     const height = parseFloat(document.getElementById("height").value) / 100;
@@ -1178,7 +1185,8 @@ const calculateBMI = () => {
     <link rel="stylesheet" href="style.css">
 </body>
 </html>
-
+```
+```css
 body {
     font-family: 'Sarabun', sans-serif;
     max-width: 600px;
@@ -1426,7 +1434,8 @@ button:hover {
     <script src="script.js"></script>
 </body>
 </html>
-
+```
+```css
 body {
     font-family: 'Sarabun', sans-serif;
     max-width: 600px;
@@ -1511,7 +1520,8 @@ button:hover {
     }
 }
 /* ลด padding ของ body และ form เพื่อให้ฟอร์มดูดีขึ้นในหน้าจอเล็ก */
-
+```
+```javascript
 document.getElementById('bookingForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
